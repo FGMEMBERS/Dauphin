@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>tailrotor.ac</path>
+
+  <animation>
+    <object-name>rotortail</object-name>
+  </animation>
+
+  <!-- Blades -->
+  <model>
+    <name>Blade1</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Blade2</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>     0.000 </pitch-deg>
+      <heading-deg>  32.720 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Blade3</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>     0.000 </pitch-deg>
+      <heading-deg>  65.440 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Blade4</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>     0.000 </pitch-deg>
+      <heading-deg>  98.160 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Blade5</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>     0.000 </pitch-deg>
+      <heading-deg> 130.880 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Blade6</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>     0.000 </pitch-deg>
+      <heading-deg> 196.320 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Blade7</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>     0.000 </pitch-deg>
+      <heading-deg> 229.040 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Blade8</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>     0.000 </pitch-deg>
+      <heading-deg> 261.760 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Blade9</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>     0.000 </pitch-deg>
+      <heading-deg> 294.480 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Blade10</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>     0.000 </pitch-deg>
+      <heading-deg> 327.200 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Blade11</name>
+    <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
+    <offsets>
+      <x-m> 0.000 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.000 </z-m>
+      <roll-deg>      0.000 </roll-deg>
+      <pitch-deg>     0.000 </pitch-deg>
+      <heading-deg> 359.720 </heading-deg>
+    </offsets>
+  </model>
+
+  <animation>
+    <name>rotorcomplet</name>
+    <object-name>rotortail</object-name>
+    <object-name>Blade1</object-name>
+    <object-name>Blade2</object-name>
+    <object-name>Blade3</object-name>
+    <object-name>Blade4</object-name>
+    <object-name>Blade5</object-name>
+    <object-name>Blade6</object-name>
+    <object-name>Blade7</object-name>
+    <object-name>Blade8</object-name>
+    <object-name>Blade9</object-name>
+    <object-name>Blade10</object-name>
+    <object-name>Blade11</object-name>
+  </animation>
+
+  <!-- Rotation du rotor -->
+  <animation>
+    <type>rotate</type>
+    <object-name>rotorcomplet</object-name>
+    <property>rotors/tail/blade[0]/position-deg</property>
+    <center>
+       <x-m> 0.000 </x-m>
+       <y-m> 0.000 </y-m>
+       <z-m> 0.000 </z-m>
+    </center>
+    <axis>
+      <x>  0.000 </x>
+      <y>  0.000 </y>
+      <z>  1.000 </z>
+    </axis>
+  </animation>
+</PropertyList>
+

@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>dauphin.ac</path>
+
+  <animation>
+    <object-name>fuselage</object-name>
+    <object-name>derive</object-name>
+    <object-name>moteurs</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+
+    <object-name>roueA</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+
+    <!-- Transparence -->
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>glass_shader.png</texture>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>vitres</object-name>
+  </animation>
+
+  <!-- Interieur -->
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/interior.xml</path>
+    <offsets>
+      <x-m> 0.0 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 0.0 </z-m>
+      <roll-deg>    0.0 </roll-deg>
+      <pitch-deg>   0.0 </pitch-deg>
+      <heading-deg> 0.0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Rotor principale -->
+  <model>
+    <path>Aircraft/Dauphin/Models/MainRotor/mainrotor.xml</path>
+    <offsets>
+      <x-m> -1.785 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  1.449 </z-m>
+      <roll-deg>    0.000 </roll-deg>
+      <pitch-deg>  -5.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Rotor de queue -->
+  <model>
+    <path>Aircraft/Dauphin/Models/TailRotor/tailrotor.xml</path>
+    <offsets>
+      <x-m>  5.295 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.085 </z-m>
+      <roll-deg>  -90.000 </roll-deg>
+      <pitch-deg>   0.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Rentré des roues Temporairement disparition/apparition des roues -->
+  <animation>
+    <type>select</type>
+    <object-name>roueA</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+    <condition>
+      <not>
+        <equals>
+          <property>gear/gear[0]/position-norm</property>
+          <value>0</value>
+        </equals>
+      </not>
+    </condition>
+  </animation>
+
+  <!-- Fermeture des portes des trains -->
+  <animation>
+    <type>rotate</type>
+    <object-name>porteG</object-name>
+    <property>gear/gear[1]/position-norm</property>
+    <interpolation>
+      <entry>
+        <ind> 0.0 </ind>
+        <dep> 0.0 </dep>
+      </entry>
+      <entry>
+        <ind>   0.2 </ind>
+        <dep> -80.0 </dep>
+      </entry>
+      <entry>
+        <ind>   1.0</ind>
+        <dep> -80.0</dep>
+      </entry>
+    </interpolation>
+    <axis>
+      <x1-m> -0.985 </x1-m>
+      <y1-m> -0.862 </y1-m>
+      <z1-m> -1.148 </z1-m>
+      <x2-m>  0.301 </x2-m>
+      <y2-m> -0.697 </y2-m>
+      <z2-m> -1.035 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>porteD</object-name>
+    <property>gear/gear[2]/position-norm</property>
+    <interpolation>
+      <entry>
+        <ind> 0.0 </ind>
+        <dep> 0.0 </dep>
+      </entry>
+      <entry>
+        <ind>   0.2 </ind>
+        <dep> -80.0 </dep>
+      </entry>
+      <entry>
+        <ind>   1.0</ind>
+        <dep> -80.0</dep>
+      </entry>
+    </interpolation>
+    <axis>
+      <x1-m>  0.301 </x1-m>
+      <y1-m>  0.697 </y1-m>
+      <z1-m> -1.035 </z1-m>
+      <x2-m> -0.985 </x2-m>
+      <y2-m>  0.862 </y2-m>
+      <z2-m> -1.148 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- Compression -->
+  <animation>
+    <type>translate</type>
+    <object-name>roueA</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <factor>0.3</factor>
+    <axis>
+      <x> 0.000 </x>
+      <y> 0.000 </y>
+      <z> 1.000 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>roueG</object-name>
+    <property>gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry>
+        <ind> 0.0 </ind>
+        <dep> 0.0 </dep>
+      </entry>
+      <entry>
+        <ind> 1.000 </ind>
+        <dep> 0.300 </dep>
+      </entry>
+    </interpolation>
+    <axis>
+      <x> 0.000 </x>
+      <y> 0.000 </y>
+      <z> 1.000 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>roueD</object-name>
+    <property>gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry>
+        <ind> 0.0 </ind>
+        <dep> 0.0 </dep>
+      </entry>
+      <entry>
+        <ind> 1.000 </ind>
+        <dep> 0.300 </dep>
+      </entry>
+    </interpolation>
+    <axis>
+      <x> 0.000 </x>
+      <y> 0.000 </y>
+      <z> 1.000 </z>
+    </axis>
+  </animation>
+
+ <!-- Rotation des roues lors du roulage -->
+ <animation>
+   <type>spin</type>
+   <object-name>roueA</object-name>
+   <property>gear/gear[0]/rollspeed-ms</property>
+   <factor> 30 </factor>
+   <center>
+   <x-m> -4.811 </x-m>
+   <y-m>  0.000 </y-m>
+   <z-m> -1.670 </z-m>
+   </center>
+   <axis>
+     <x>  0.000 </x>
+     <y> -1.000 </y>
+     <z>  0.000 </z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>spin</type>
+   <object-name>roueG</object-name>
+   <property>gear/gear[1]/rollspeed-ms</property>
+   <factor> 30 </factor>
+   <center>
+     <x-m> -0.857 </x-m>
+     <y-m> -1.001 </y-m>
+     <z-m> -1.670 </z-m>
+   </center>
+   <axis>
+     <x>  0.000 </x>
+     <y> -1.000 </y>
+     <z>  0.000 </z>
+   </axis>
+ </animation>
+
+ <animation>
+   <type>spin</type>
+   <object-name>roueD</object-name>
+   <property>gear/gear[1]/rollspeed-ms</property>
+   <factor> 30 </factor>
+   <center>
+     <x-m> -0.857 </x-m>
+     <y-m>  1.001 </y-m>
+     <z-m> -1.670 </z-m>
+   </center>
+   <axis>
+     <x>  0.000 </x>
+     <y> -1.000 </y>
+     <z>  0.000 </z>
+   </axis>
+ </animation>
+
+</PropertyList>
+
