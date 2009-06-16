@@ -2,9 +2,9 @@
 
 <PropertyList>
   <sim>
-      <model>
-        <name type="string">Default</name>
+      <model>      
         <livery>
+          <name type="string">Default</name>
           <texture>texture.png</texture>
 <!--
         <diffuse>
