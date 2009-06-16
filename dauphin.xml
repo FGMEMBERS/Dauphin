@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!-- Dauohin d'après l'OH-1 de TAT -->
 <airplane mass="5400">
 
@@ -97,22 +99,12 @@
     <control-input axis="/controls/rotor/brake" control="ROTORBRAKE" src0="0.0" src1="1.0" dst0="0.0" dst1="1.0"/>
   </rotorgear>
 
-  <cockpit x="7.589" y="0.694" z="-0.570"/>
+  <cockpit x="4.143" y="-0.344" z="-0.218"/>
 
   <!-- Fuse -->
-  <fuselage ax="9" ay="0" az="-1.597" bx="-6.956" by="0" bz="-0.34" width="4" taper="0.5" midpoint="0.35"/>
+  <fuselage ax="8.010" ay="0" az="-0.534" bx="-4.476" by="0" bz="-0.534" width="2" taper="0.5" midpoint="0.35"/>
 
-  <!-- Tail -->
-  <fuselage ax="-6.956" ay="0" az="-0.34" bx="-10.244" by="0" bz="1.133" width="2" taper="0.5" midpoint="0"/>
-
-  <!-- wheel left -->
-  <fuselage ax="1.923" ay="3.214"  az="-1.674" bx="-1.217" by="3.214"  bz="-2.079" width="0.8" taper="0.5" midpoint="0.5"/>
-
-  <!-- wheel right -->
-  <fuselage ax="1.923" ay="-3.214"  az="-1.674" bx="-1.217" by="-3.214"  bz="-2.079" width="0.8" taper="0.5" midpoint="0.5"/>
-
-
-  <vstab x="-9.4" y="0" z="1.148" 
+  <vstab x="-3.938" y="1.512" z="-1.218"
          taper=".5" 
          length="2.5" 
          chord="1.38" 
@@ -121,9 +113,17 @@
          <stall aoa="16" width="4" peak="1.5"/>
   </vstab>
 
+  <vstab x="-3.938" y="-1.512" z="-1.218"
+         taper=".5" 
+         length="2.5" 
+         chord="1.38" 
+         sweep="45" 
+         incidence="5">
+         <stall aoa="16" width="4" peak="1.5"/>
+  </vstab>
 
-  <hstab x="-9.4" y="0.0" z="1.01" 
-         taper="1.0" 
+  <hstab x="-3.938" y="0" z="-0.364"
+         taper="1.0"
          effectiveness="0.5" 
          length="1.27" 
          chord="0.52" 
@@ -170,23 +170,22 @@
         <control-output control="EXTEND" prop="gear/gear[2]/position-norm"/>
   </gear>
 
-  <tank x="3.39" y="0" z="-.31" capacity="75"/>
-  <tank x="3.47" y="0" z="-.31" capacity="75"/>
-  <tank x="3.8" y="0" z="0" capacity="75"/>
+  <tank x="1.39" y="0" z="-.31" capacity="75"/>
+  <tank x="1.47" y="0" z="-.31" capacity="75"/>
+  <tank x="1.8" y="0" z="0" capacity="75"/>
   <!-- work around bug in native-fdm.cxx:184 -->
   <tank x="0" y="0" z="0" capacity="0"/>
   <ballast x="3.0" y="+0.0" z="-0.5" mass="100"/>
   <ballast x="0.78" y=" 1.1" z="1.1" mass="350"/>
   <ballast x="0.78" y="-1.1" z="1.1" mass="150"/>
 
-
   <!-- pilot -->
-  <weight x="3.76" y="0" z="1.36" mass-prop="/sim/weight[1]/weight-lb"/>
+  <weight x="1.76" y="0" z="1.36" mass-prop="/sim/weight[1]/weight-lb"/>
   <!-- co-pilot -->
-  <weight x="2.61" y="0"  z="1.88" mass-prop="/sim/weight[2]/weight-lb"/>
+  <weight x="1.61" y="0"  z="1.88" mass-prop="/sim/weight[2]/weight-lb"/>
 
   <!-- hitch -->
-  <hitch name="aerotow" x="-3.320" y="0" z="-0.762"  force-is-calculated-by-other="1">
+  <hitch name="aerotow" x="-1.320" y="0" z="-0.762"  force-is-calculated-by-other="1">
     <tow length="60" weight-per-meter="0.035" elastic-constant="9000" break-force="10000" mp-auto-connect-period="1.0"/>
     <winch max-tow-length="1000" min-tow-length="60" initial-tow-length="60"/>
     <control-input axis="/controls/aerotow/find-aircraft" control="FINDAITOW"/>

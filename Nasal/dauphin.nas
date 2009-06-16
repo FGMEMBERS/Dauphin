@@ -14,45 +14,9 @@ var npow = func(v, w) { math.exp(math.ln(abs(v)) * w) * (v < 0 ? -1 : 1) }
 var clamp = func(v, min = 0, max = 1) { v < min ? min : v > max ? max : v }
 var normatan = func(x) { math.atan2(x, 1) * 2 / math.pi }
 
-
-
-
 # timers ============================================================
 var turbine_timer = aircraft.timer.new("/sim/time/hobbs/turbines", 10);
 aircraft.timer.new("/sim/time/hobbs/helicopter", nil).start();
-
-# strobes ===========================================================
-var strobe_switch = props.globals.getNode("controls/lighting/strobe", 1);
-aircraft.light.new("sim/model/dauphin/lighting/strobe-top", [0.05, 1.00], strobe_switch);
-aircraft.light.new("sim/model/dauphin/lighting/strobe-bottom", [0.05, 1.03], strobe_switch);
-
-# beacons ===========================================================
-var beacon_switch = props.globals.getNode("controls/lighting/beacon", 1);
-aircraft.light.new("sim/model/dauphin/lighting/beacon-top", [0.62, 0.62], beacon_switch);
-aircraft.light.new("sim/model/dauphin/lighting/beacon-bottom", [0.63, 0.63], beacon_switch);
-
-
-# nav lights ========================================================
-var nav_light_switch = props.globals.getNode("controls/lighting/nav-lights", 1);
-var visibility = props.globals.getNode("environment/visibility-m", 1);
-var sun_angle = props.globals.getNode("sim/time/sun-angle-rad", 1);
-var nav_lights = props.globals.getNode("sim/model/dauphin/lighting/nav-lights", 1);
-
-var nav_light_loop = func {
-	if (nav_light_switch.getValue()) {
-		nav_lights.setValue(visibility.getValue() < 5000 or sun_angle.getValue() > 1.4);
-	} else {
-		nav_lights.setValue(0);
-	}
-	settimer(nav_light_loop, 3);
-}
-
-settimer(nav_light_loop, 0);
-
-
-
-
-
 
 # engines/rotor =====================================================
 var state = props.globals.getNode("sim/model/dauphin/state");
@@ -151,13 +115,21 @@ var update_engine = func {
 
 var update_rotor_cone_angle = func {
 	r = rotor_rpm.getValue();
-	var f = 1 - r / 100;
-	f = clamp (f, 0.1 , 1);
+        #print("r  = ", r);
+
+	var f = r / 186;
+        #print("f1 = ", f);
+
+	f = clamp (f, 0 , 1);
+        #print("f2 = ", f);
+
 	c = cone.getValue();
-	cone1.setDoubleValue( f *c *0.40 + (1-f) * c );
-	cone2.setDoubleValue( f *c *0.35);
-	cone3.setDoubleValue( f *c *0.3);
-	cone4.setDoubleValue( f *c *0.25);
+        #print("c  = ", c);
+
+	cone1.setDoubleValue( (c * 1.00) + (f * c));
+	cone2.setDoubleValue( (c * 0.10) + (f * c));
+	cone3.setDoubleValue( (c * 0.15) + (f * c));
+	cone4.setDoubleValue( (c * 0.20) + (f * c));
 }
 
 # torquemeter
@@ -170,11 +142,7 @@ var update_torque = func(dt) {
 	torque_pct.setDoubleValue(torque_val / 5300);
 }
 
-
-
-
 # sound =============================================================
-
 # stall sound
 var stall_val = 0;
 stall.setDoubleValue(0);
@@ -202,10 +170,6 @@ var update_torque_sound_filtered = func(dt) {
 	var r = clamp(rotor_rpm.getValue()*0.02-1);
 	torque_sound_filtered.setDoubleValue(t*r);
 }
-
-
-
-
 
 # skid slide sound
 var Skid = {
@@ -256,8 +220,6 @@ var update_slide = func {
 	}
 }
 
-
-
 # crash handler =====================================================
 #var load = nil;
 var crash = func {
@@ -296,9 +258,6 @@ var crash = func {
 	}
 }
 
-
-
-
 # "manual" rotor animation for flight data recorder replay ============
 var rotor_step = props.globals.getNode("sim/model/dauphin/rotor-step-deg");
 var blade1_pos = props.globals.getNode("rotors/main/blade[0]/position-deg", 1);
@@ -311,9 +270,9 @@ var rotoranim_loop = func {
 	i = rotor_step.getValue();
 	if (i >= 0.0) {
 		blade1_pos.setValue(rotorangle);
-		blade2_pos.setValue(rotorangle + 90);
-		blade3_pos.setValue(rotorangle + 180);
-		blade4_pos.setValue(rotorangle + 270);
+		blade2_pos.setValue(rotorangle + 60);
+		blade3_pos.setValue(rotorangle + 120);
+		blade4_pos.setValue(rotorangle + 180);
 		rotorangle += i;
 		settimer(rotoranim_loop, 0.1);
 	}
@@ -324,7 +283,6 @@ var init_rotoranim = func {
 		settimer(rotoranim_loop, 0.1);
 	}
 }
-
 
 # view management ===================================================
 
@@ -382,9 +340,6 @@ dynamic_view.register(func {
 		-15 * r * lowspeed;					#    roll
 });
 
-
-
-
 # main() ============================================================
 var delta_time = props.globals.getNode("/sim/time/delta-realtime-sec", 1);
 var adf_rotation = props.globals.getNode("/instrumentation/adf/rotation-deg", 1);
@@ -408,7 +363,6 @@ var crashed = 0;
 var variant = nil;
 var doors = nil;
 var config_dialog = nil;
-
 
 # initialization
 setlistener("/sim/signals/fdm-initialized", func {

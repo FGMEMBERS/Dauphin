@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 ************************************************************************
 Dauphin simulation config.
@@ -29,18 +29,13 @@ Dauphin simulation config.
 
     <model>
       <path archive="y">Aircraft/Dauphin/Models/dauphin.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
       <dauphin>
         <state type="int">0</state>
         <engine type="float">0.0</engine>
         <rotor-step-deg type="float">-1.0</rotor-step-deg>
-
-        <hide-gsdi>true</hide-gsdi>
-        <binocular_standart type="bool">true</binocular_standart>
-        <binocular_tri type="bool">false</binocular_tri>
-        <winch>false</winch>
-        <mirror>false</mirror>
-        <wirecutter_skid>false</wirecutter_skid>
-        <wirecutter_up>false</wirecutter_up>
       </dauphin>
     </model>
 
@@ -48,20 +43,45 @@ Dauphin simulation config.
       <title>Dauphin - background and help</title>
       <line></line>
       <key>
-        <name>d</name>
-        <desc>Left door</desc>
+        <name>{</name>
+        <desc>Start engines</desc>
       </key>
       <key>
-        <name>D</name>
-        <desc>Left windows</desc>
+        <name>}</name>
+        <desc>Shutdown engines</desc>
+      </key>
+      <key>
+        <name>R</name>
+        <desc>Toggle rotor brake</desc>
+      </key>
+      <key>
+        <name>r</name>
+        <desc>Apply rotor brake</desc>
+      </key>
+      <key>
+        <name>Ctrl d</name>
+        <desc>Toggle S.A.S.</desc>
+      </key>
+      <key>
+        <name>Ctrl e</name>
+        <desc>Toggle C.A.S.</desc>
+      </key>
+      <key>
+        <name>Ctrl f</name>
+        <desc>Auto hover</desc>
       </key>
     </help>
+
+    <menubar include="Dialogs/dauphin-menu.xml"/>
 
   </sim>
 
   <controls>
     <engines>
       <engine n="0">
+        <magnetos>0</magnetos>
+      </engine>
+      <engine n="1">
         <magnetos>0</magnetos>
       </engine>
     </engines>
@@ -85,15 +105,6 @@ Dauphin simulation config.
     <keyboard include="Nasal/dauphin-keyboard.xml"/>
   </input>
 
-  <nasal>
-    <dauphin>
-      <file>Aircraft/Dauphin/Nasal/doors.nas</file>
-      <file>Aircraft/Dauphin/Nasal/hsi.nas</file>
-      <file>Aircraft/Dauphin/Nasal/fcs.nas</file>
-      <file>Aircraft/Dauphin/Nasal/dauphin.nas</file>
-    </dauphin>
-  </nasal>
-
   <rotors>
     <main>
       <rpm type="double">0</rpm>
@@ -104,6 +115,20 @@ Dauphin simulation config.
       <cone4-deg type="double">0</cone4-deg>
     </main>
   </rotors>
+
+  <nasal>
+    <dauphin>
+      <file>Aircraft/Dauphin/Nasal/doors.nas</file>
+      <file>Aircraft/Dauphin/Nasal/immat.nas</file>
+      <file>Aircraft/Dauphin/Nasal/light.nas</file>
+      <file>Aircraft/Dauphin/Nasal/dauphin.nas</file>
+      <file>Aircraft/Dauphin/Nasal/liveries.nas</file>
+      <file>Aircraft/Dauphin/Nasal/bladevisible.nas</file>
+      <file>Aircraft/Dauphin/Nasal/fcs-management.nas</file>
+
+      <file>Aircraft/Generic/helicopter-fcs.nas</file>
+    </dauphin>
+  </nasal>
 
 </PropertyList>
 

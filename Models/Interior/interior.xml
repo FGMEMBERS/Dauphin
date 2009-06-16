@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <PropertyList>
 
@@ -7,9 +7,22 @@
   <animation>
     <!-- Objets opaques -->
     <object-name>interieur</object-name>
-    <object-name>tour</object-name>
+    <object-name>inttour</object-name>
 
     <!-- Objets transparents -->
+    <object-name>intvitres</object-name>
+  </animation>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>shader.png</texture>
+    <object-name>intvitres</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>intvitres</object-name>
   </animation>
 
   <!-- Pilote -->
@@ -19,9 +32,9 @@
       <x-m> -4.095 </x-m>
       <y-m>  0.349 </y-m>
       <z-m> -0.719 </z-m>
-      <roll-deg>    0.0 </roll-deg>
-      <pitch-deg>   0.0 </pitch-deg>
-      <heading-deg> 0.0 </heading-deg>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
     </offsets>
   </model>
 
