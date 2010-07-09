@@ -125,7 +125,6 @@ Dauphin simulation config.
       <file>Aircraft/Dauphin/Nasal/liveries.nas</file>
       <file>Aircraft/Dauphin/Nasal/bladevisible.nas</file>
       <file>Aircraft/Dauphin/Nasal/fcs-management.nas</file>
-
       <file>Aircraft/Generic/helicopter-fcs.nas</file>
     </dauphin>
   </nasal>
