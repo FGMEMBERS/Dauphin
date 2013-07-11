@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -7,14 +7,32 @@
   <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/Dauphin/Models/Liveries", 10);
+      
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+    
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
     </load>
+
     <unload>
       livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
     </unload>
   </nasal>
 
   <animation>
     <object-name>fuselage</object-name>
+    <object-name>porteAG</object-name>
+    <object-name>porteBG</object-name>
+    <object-name>porteAD</object-name>
+    <object-name>porteBD</object-name>
     <object-name>derive</object-name>
     <object-name>moteurs</object-name>
     <object-name>porteG</object-name>
@@ -27,11 +45,19 @@
 
     <!-- Transparence -->
     <object-name>vitres</object-name>
+    <object-name>vitreporteAG</object-name>
+    <object-name>vitreporteBG</object-name>
+    <object-name>vitreporteAD</object-name>
+    <object-name>vitreporteBD</object-name>
   </animation>
 
   <animation>
     <type>material</type>
     <object-name>fuselage</object-name>
+    <object-name>porteAG</object-name>
+    <object-name>porteBG</object-name>
+    <object-name>porteAD</object-name>
+    <object-name>porteBD</object-name>
     <object-name>derive</object-name>
     <object-name>moteurs</object-name>
     <object-name>porteG</object-name>
@@ -45,70 +71,90 @@
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>texture.png</texture>
-<!--
-    <diffuse>
-      <red-prop>diffuse/red</red-prop>
-      <green-prop>diffuse/green</green-prop>
-      <blue-prop>diffuse/blue</blue-prop>
-    </diffuse>
-
-    <ambient>
-      <red-prop>ambient/red</red-prop>
-      <green-prop>ambient/green</green-prop>
-      <blue-prop>ambient/blue</blue-prop>
-    </ambient>
--->
     <specular>
       <red-prop>specular/red</red-prop>
       <green-prop>specular/green</green-prop>
       <blue-prop>specular/blue</blue-prop>
     </specular>
-
     <emission>
       <red-prop>emission/red</red-prop>
       <green-prop>emission/green</green-prop>
       <blue-prop>emission/blue</blue-prop>
     </emission>
-<!--
-    <shininess>
-      <shininess-prop>shininess</shininess-prop>
-    </shininess>
--->
   </animation>
-
-  <effect>
-    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
-    <object-name>fuselage</object-name>
-    <object-name>derive</object-name>
-    <object-name>moteurs</object-name>
-    <object-name>porteG</object-name>
-    <object-name>porteD</object-name>
-  </effect>
 
   <animation>
     <type>shader</type>
     <shader>chrome</shader>
     <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
     <object-name>vitres</object-name>
+    <object-name>vitreporteAG</object-name>
+    <object-name>vitreporteBG</object-name>
+    <object-name>vitreporteAD</object-name>
+    <object-name>vitreporteBD</object-name>
   </animation>
 
   <animation>
     <type>noshadow</type>
     <object-name>vitres</object-name>
+    <object-name>vitreporteAG</object-name>
+    <object-name>vitreporteBG</object-name>
+    <object-name>vitreporteAD</object-name>
+    <object-name>vitreporteBD</object-name>
   </animation>
+
+  <effect>
+    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+    <condition>
+      <not><property>sim/rendering/rembrandt/enabled</property></not>
+    </condition>
+    <object-name>fuselage</object-name>
+    <object-name>porteAG</object-name>
+    <object-name>porteBG</object-name>
+    <object-name>porteAD</object-name>
+    <object-name>porteBD</object-name>
+    <object-name>derive</object-name>
+    <object-name>moteurs</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-combined-deferred</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>fuselage</object-name>
+    <object-name>porteAG</object-name>
+    <object-name>porteBG</object-name>
+    <object-name>porteAD</object-name>
+    <object-name>porteBD</object-name>
+    <object-name>derive</object-name>
+    <object-name>moteurs</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+  </effect>
+
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>vitres</object-name>
+  </effect>
 
   <!-- Interieur -->
   <model>
+    <name>Interieur</name>
     <path>Aircraft/Dauphin/Models/Interior/interior.xml</path>
-    <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>    0 </roll-deg>
-      <pitch-deg>   0 </pitch-deg>
-      <heading-deg> 0 </heading-deg>
-    </offsets>
   </model>
+
+  <!-- For Rembrandt -->
+  <animation>
+    <type>noshadow</type>
+    <object-name>Interieur</object-name>
+  </animation>
 
   <!-- Rotor principale -->
   <model>
@@ -117,9 +163,7 @@
       <x-m> -1.785 </x-m>
       <y-m>  0.000 </y-m>
       <z-m>  1.449 </z-m>
-      <roll-deg>    0 </roll-deg>
       <pitch-deg>  -5 </pitch-deg>
-      <heading-deg> 0 </heading-deg>
     </offsets>
   </model>
 
@@ -131,8 +175,6 @@
       <y-m>  0.000 </y-m>
       <z-m> -0.085 </z-m>
       <roll-deg>  -90 </roll-deg>
-      <pitch-deg>   0 </pitch-deg>
-      <heading-deg> 0 </heading-deg>
     </offsets>
   </model>
 
@@ -286,6 +328,147 @@
     </axis>
   </animation>
 
+  <!-- Les portes -->
+  <animation>
+    <name>PorteAvantGauche</name>
+    <object-name>porteAG</object-name>
+    <object-name>vitreporteAG</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PorteAvantGauche</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crewl.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PorteAvantGauche</object-name>
+    <property>sim/model/door-positions/crewl/position-norm</property>
+    <factor> -70 </factor>
+    <axis>
+      <x1-m> -3.88886 </x1-m>
+      <y1-m> -0.93371 </y1-m>
+      <z1-m> -0.82388 </z1-m>
+      <x2-m> -3.79440 </x2-m>
+      <y2-m> -0.92268 </y2-m>
+      <z2-m> -0.43779 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>PorteAvantDroite</name>
+    <object-name>porteAD</object-name>
+    <object-name>vitreporteAD</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PorteAvantDroite</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crewr.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PorteAvantDroite</object-name>
+    <property>sim/model/door-positions/crewr/position-norm</property>
+    <factor> 70 </factor>
+    <axis>
+      <x1-m> -3.88886 </x1-m>
+      <y1-m>  0.93371 </y1-m>
+      <z1-m> -0.82388 </z1-m>
+      <x2-m> -3.79440 </x2-m>
+      <y2-m>  0.92268 </y2-m>
+      <z2-m> -0.43779 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>PorteArriereGauche</name>
+    <object-name>porteBG</object-name>
+    <object-name>vitreporteBG</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PorteArriereGauche</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.passengerl.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PorteArriereGauche</object-name>
+    <property>sim/model/door-positions/passengerl/position-norm</property>
+    <factor> -70 </factor>
+    <axis>
+      <x1-m> -2.56923 </x1-m>
+      <y1-m> -1.00689 </y1-m>
+      <z1-m> -0.79289 </z1-m>
+      <x2-m> -2.50491 </x2-m>
+      <y2-m> -0.97250 </y2-m>
+      <z2-m> -0.38677 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>PorteArriereDroite</name>
+    <object-name>porteBD</object-name>
+    <object-name>vitreporteBD</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PorteArriereDroite</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.passengerr.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PorteArriereDroite</object-name>
+    <property>sim/model/door-positions/passengerr/position-norm</property>
+    <factor> 70 </factor>
+    <axis>
+      <x1-m> -2.56923 </x1-m>
+      <y1-m>  1.00689 </y1-m>
+      <z1-m> -0.79289 </z1-m>
+      <x2-m> -2.50491 </x2-m>
+      <y2-m>  0.97250 </y2-m>
+      <z2-m> -0.38677 </z2-m>
+    </axis>
+  </animation>
+
   <!-- Ajout des effets lumineux -->
   <model>
     <path>Aircraft/Dauphin/Models/light/beacon.xml</path>
@@ -324,7 +507,7 @@
   </model>
 
   <model>
-    <path>Aircraft/Dauphin/Models/light/StrobeWhite.xml</path>
+    <path>Aircraft/Dauphin/Models/light/StrobeLight.xml</path>
     <offsets>
       <x-m> -2.483 </x-m>
       <y-m> -1.000 </y-m>
@@ -333,7 +516,7 @@
   </model>
 
   <model>
-    <path>Aircraft/Dauphin/Models/light/StrobeWhite.xml</path>
+    <path>Aircraft/Dauphin/Models/light/StrobeLight.xml</path>
     <offsets>
       <x-m> -2.483 </x-m>
       <y-m>  1.000 </y-m>
@@ -342,4 +525,3 @@
   </model>
 
 </PropertyList>
-

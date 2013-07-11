@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -14,12 +14,7 @@
     <name>Blade1</name>
     <path>Aircraft/Dauphin/Models/MainRotor/blade1.xml</path>
     <offsets>
-      <x-m> 0.000 </x-m>
-      <y-m> 0.000 </y-m>
       <z-m> 0.100 </z-m>
-      <roll-deg>     0 </roll-deg>
-      <pitch-deg>    0 </pitch-deg>
-      <heading-deg>  0 </heading-deg>
     </offsets>
   </model>
 
@@ -27,11 +22,7 @@
     <name>Blade2</name>
     <path>Aircraft/Dauphin/Models/MainRotor/blade2.xml</path>
     <offsets>
-      <x-m> 0.000 </x-m>
-      <y-m> 0.000 </y-m>
       <z-m> 0.100 </z-m>
-      <roll-deg>     0 </roll-deg>
-      <pitch-deg>    0 </pitch-deg>
       <heading-deg> 90 </heading-deg>
     </offsets>
   </model>
@@ -40,11 +31,7 @@
     <name>Blade3</name>
     <path>Aircraft/Dauphin/Models/MainRotor/blade3.xml</path>
     <offsets>
-      <x-m> 0.000 </x-m>
-      <y-m> 0.000 </y-m>
       <z-m> 0.100 </z-m>
-      <roll-deg>      0 </roll-deg>
-      <pitch-deg>     0 </pitch-deg>
       <heading-deg> 180 </heading-deg>
     </offsets>
   </model>
@@ -53,11 +40,7 @@
     <name>Blade3</name>
     <path>Aircraft/Dauphin/Models/MainRotor/blade4.xml</path>
     <offsets>
-      <x-m> 0.000 </x-m>
-      <y-m> 0.000 </y-m>
       <z-m> 0.100 </z-m>
-      <roll-deg>      0 </roll-deg>
-      <pitch-deg>     0 </pitch-deg>
       <heading-deg> 270 </heading-deg>
     </offsets>
   </model>
@@ -78,11 +61,6 @@
     <object-name>rotorcomplet</object-name>
     <property>rotors/main/blade[0]/position-deg</property>
     <factor>-1</factor>
-    <center>
-       <x-m> 0 </x-m>
-       <y-m> 0 </y-m>
-       <z-m> 0 </z-m>
-    </center>
     <axis>
       <x>  0 </x>
       <y>  0 </y>
@@ -91,4 +69,3 @@
   </animation>
 
 </PropertyList>
-

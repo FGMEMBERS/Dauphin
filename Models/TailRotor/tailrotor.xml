@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -12,25 +12,12 @@
   <model>
     <name>Blade1</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
-    <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>    0 </roll-deg>
-      <pitch-deg>   0 </pitch-deg>
-      <heading-deg> 0 </heading-deg>
-    </offsets>
   </model>
 
   <model>
     <name>Blade2</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0.000 </roll-deg>
-      <pitch-deg>     0.000 </pitch-deg>
       <heading-deg>  32.720 </heading-deg>
     </offsets>
   </model>
@@ -39,11 +26,6 @@
     <name>Blade3</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0.000 </roll-deg>
-      <pitch-deg>     0.000 </pitch-deg>
       <heading-deg>  65.440 </heading-deg>
     </offsets>
   </model>
@@ -52,11 +34,6 @@
     <name>Blade4</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0.000 </roll-deg>
-      <pitch-deg>     0.000 </pitch-deg>
       <heading-deg>  98.160 </heading-deg>
     </offsets>
   </model>
@@ -65,11 +42,6 @@
     <name>Blade5</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0.000 </roll-deg>
-      <pitch-deg>     0.000 </pitch-deg>
       <heading-deg> 130.880 </heading-deg>
     </offsets>
   </model>
@@ -78,38 +50,23 @@
     <name>Blade6</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0.000 </roll-deg>
-      <pitch-deg>     0.000 </pitch-deg>
-      <heading-deg> 196.320 </heading-deg>
+      <heading-deg> 163.600 </heading-deg>
     </offsets>
   </model>
-
+  
   <model>
     <name>Blade7</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0.000 </roll-deg>
-      <pitch-deg>     0.000 </pitch-deg>
-      <heading-deg> 229.040 </heading-deg>
+      <heading-deg> 196.320 </heading-deg>
     </offsets>
   </model>
-
+  
   <model>
     <name>Blade8</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0.000 </roll-deg>
-      <pitch-deg>     0.000 </pitch-deg>
-      <heading-deg> 261.760 </heading-deg>
+      <heading-deg> 229.040 </heading-deg>
     </offsets>
   </model>
 
@@ -117,12 +74,7 @@
     <name>Blade9</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0.000 </roll-deg>
-      <pitch-deg>     0.000 </pitch-deg>
-      <heading-deg> 294.480 </heading-deg>
+      <heading-deg> 261.760 </heading-deg>
     </offsets>
   </model>
 
@@ -130,12 +82,7 @@
     <name>Blade10</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0.000 </roll-deg>
-      <pitch-deg>     0.000 </pitch-deg>
-      <heading-deg> 327.200 </heading-deg>
+      <heading-deg> 294.480 </heading-deg>
     </offsets>
   </model>
 
@@ -143,15 +90,10 @@
     <name>Blade11</name>
     <path>Aircraft/Dauphin/Models/TailRotor/blade.xml</path>
     <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-      <roll-deg>      0.000 </roll-deg>
-      <pitch-deg>     0.000 </pitch-deg>
-      <heading-deg> 359.720 </heading-deg>
+      <heading-deg> 327.200 </heading-deg>
     </offsets>
   </model>
-
+  
   <animation>
     <name>rotorcomplet</name>
     <object-name>rotortail</object-name>
@@ -173,16 +115,11 @@
     <type>rotate</type>
     <object-name>rotorcomplet</object-name>
     <property>rotors/tail/blade[0]/position-deg</property>
-    <center>
-       <x-m> 0 </x-m>
-       <y-m> 0 </y-m>
-       <z-m> 0 </z-m>
-    </center>
     <axis>
-      <x>  0 </x>
-      <y>  0 </y>
-      <z>  1 </z>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
     </axis>
   </animation>
+  
 </PropertyList>
-

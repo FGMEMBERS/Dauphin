@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -11,7 +11,6 @@
     </binding>
   </key>
 
-  
   <key n="5">
     <name>Ctrl-e</name>
     <desc>Toggle CAS enable</desc>
@@ -20,7 +19,6 @@
       <script>dauphin.cas.toggleEnable();</script>
     </binding>
   </key>
-
   
   <key n="6">
     <name>Ctrl-f</name>
@@ -36,7 +34,11 @@
     <desc>Passenger door</desc>
     <binding>
       <command>nasal</command>
-      <script>dauphin.doorsystem.passengerexport();</script>
+      <script>doors.passengerl.toggle();</script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>doors.passengerr.toggle();</script>
     </binding>
   </key>
 
@@ -45,7 +47,11 @@
     <desc>Crew door</desc>
     <binding>
       <command>nasal</command>
-      <script>dauphin.doorsystem.crewexport();</script>
+      <script>doors.crewl.toggle();</script>
+    </binding>
+    <binding>
+      <command>nasal</command>
+      <script>doors.crewr.toggle();</script>
     </binding>
   </key>
 
@@ -95,4 +101,3 @@
   </key>
 
 </PropertyList>
-

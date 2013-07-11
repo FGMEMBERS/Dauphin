@@ -1,15 +1,131 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
-   <path>panel.ac</path>
+  <path>panel.ac</path>
 
   <animation>
     <!-- Objets opaques -->
     <object-name>panel</object-name>
-
+    <object-name>panel2</object-name>
+    <object-name>panel3</object-name>
+    
     <!-- Objets transparents -->
   </animation>
+
+  <!-- AI -->
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/ai/ai.xml</path>
+    <offsets>
+      <x-m>  0.16 </x-m>
+      <y-m> -0.44 </y-m>
+      <z-m> -0.03 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/ai/ai.xml</path>
+    <offsets>
+      <x-m>  0.16 </x-m>
+      <y-m>  0.44 </y-m>
+      <z-m> -0.03 </z-m>
+    </offsets>
+  </model>
+
+  <!-- HSI -->
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/hsi/hsi.xml</path>
+    <offsets>
+      <x-m>  0.157 </x-m>
+      <y-m> -0.440 </y-m>
+      <z-m> -0.143 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/hsi/hsi.xml</path>
+    <offsets>
+      <x-m>  0.157 </x-m>
+      <y-m>  0.440 </y-m>
+      <z-m> -0.143 </z-m>
+    </offsets>
+  </model>
+
+  <!-- VSI -->
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/vsi/vsi.xml</path>
+    <offsets>
+      <x-m>  0.157 </x-m>
+      <y-m> -0.545 </y-m>
+      <z-m> -0.100 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/vsi/vsi.xml</path>
+    <offsets>
+      <x-m>  0.157 </x-m>
+      <y-m>  0.545 </y-m>
+      <z-m> -0.100 </z-m>
+    </offsets>
+  </model>
+
+  <!-- ALT -->
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m>  0.157 </x-m>
+      <y-m> -0.335 </y-m>
+      <z-m> -0.100 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m>  0.157 </x-m>
+      <y-m>  0.335 </y-m>
+      <z-m> -0.100 </z-m>
+    </offsets>
+  </model>
+
+  <!-- ASI -->
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/asi/asi.xml</path>
+    <offsets>
+      <x-m>  0.157 </x-m>
+      <y-m> -0.335 </y-m>
+      <z-m>  0.001 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/asi/asi.xml</path>
+    <offsets>
+      <x-m> 0.157 </x-m>
+      <y-m> 0.335 </y-m>
+      <z-m> 0.001 </z-m>
+    </offsets>
+  </model>
+
+  <!-- CH-RALT -->
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/ch-ralt/ralt.xml</path>
+    <offsets>
+      <x-m>  0.157 </x-m>
+      <y-m> -0.545 </y-m>
+      <z-m> -0.190 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/Interior/Panel/Instruments/ch-ralt/ralt.xml</path>
+    <offsets>
+      <x-m>  0.157 </x-m>
+      <y-m>  0.545 </y-m>
+      <z-m> -0.190 </z-m>
+    </offsets>
+  </model>
 
 </PropertyList>
 

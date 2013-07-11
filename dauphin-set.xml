@@ -1,10 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-************************************************************************
-Dauphin simulation config.
-
-************************************************************************
--->
+<?xml version="1.0" encoding="ISO-8859-1"?>
 
 <PropertyList>
 
@@ -35,9 +29,29 @@ Dauphin simulation config.
       <dauphin>
         <state type="int">0</state>
         <engine type="float">0.0</engine>
-        <rotor-step-deg type="float">-1.0</rotor-step-deg>
+        <rotor-step-deg type="float">-1</rotor-step-deg>
       </dauphin>
     </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+        <int type="int" n="0">  0 </int>                                      <!-- 0 immat -->
+        <int type="int" n="1">  0 </int>                                      <!-- 1 immat -->
+        <int type="int" n="2">  0 </int>                                      <!-- 2 immat -->
+        <int type="int" n="3">  0 </int>                                      <!-- 3 immat -->
+        <int type="int" n="4">  0 </int>                                      <!-- 4 immat -->
+        <int type="int" n="5">  0 </int>                                      <!-- 5 immat -->
+        <int type="bool" n="6"> 1 </int>                                      <!-- 6 smoke/bomb/torpedo -->
+        <int type="int" n="7">  0 </int>                                      <!-- 7 color -->
+        <int n="8" alias="/systems/electrical/outputs/nav-lights">  0 </int>  <!-- 8 nav-lights -->
+        <int n="9" alias="/sim/model/lights/beacon/state">  false </int>      <!-- 9 strobe-lights -->
+        <int n="10" alias="/controls/electric/key-pos">  0 </int>             <!-- 10 key position -->
+        <float n="2" alias="/position/gear-agl-m">  0 </float>                <!-- 11 altitude for MP shadow -->
+        <float n="0" alias="/instrumentation/doors/crew/position-norm"/>
+        <float n="1" alias="/instrumentation/doors/passenger/position-norm"/>  
+      </generic>
+    </multiplay>
 
     <help>
       <title>Dauphin - background and help</title>
@@ -117,8 +131,10 @@ Dauphin simulation config.
   </rotors>
 
   <nasal>
-    <dauphin>
+    <doors>
       <file>Aircraft/Dauphin/Nasal/doors.nas</file>
+    </doors>
+    <dauphin>
       <file>Aircraft/Dauphin/Nasal/immat.nas</file>
       <file>Aircraft/Dauphin/Nasal/light.nas</file>
       <file>Aircraft/Dauphin/Nasal/dauphin.nas</file>
@@ -130,4 +146,3 @@ Dauphin simulation config.
   </nasal>
 
 </PropertyList>
-
