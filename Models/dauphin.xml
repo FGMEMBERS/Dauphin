@@ -76,31 +76,6 @@
       <green-prop>specular/green</green-prop>
       <blue-prop>specular/blue</blue-prop>
     </specular>
-    <emission>
-      <red-prop>emission/red</red-prop>
-      <green-prop>emission/green</green-prop>
-      <blue-prop>emission/blue</blue-prop>
-    </emission>
-  </animation>
-
-  <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
-    <object-name>vitres</object-name>
-    <object-name>vitreporteAG</object-name>
-    <object-name>vitreporteBG</object-name>
-    <object-name>vitreporteAD</object-name>
-    <object-name>vitreporteBD</object-name>
-  </animation>
-
-  <animation>
-    <type>noshadow</type>
-    <object-name>vitres</object-name>
-    <object-name>vitreporteAG</object-name>
-    <object-name>vitreporteBG</object-name>
-    <object-name>vitreporteAD</object-name>
-    <object-name>vitreporteBD</object-name>
   </animation>
 
   <effect>
@@ -120,7 +95,7 @@
   </effect>
 
   <effect>
-    <inherits-from>Effects/model-combined-deferred</inherits-from>
+    <inherits-from>Aircraft/Dauphin/Models/Effects/Bump/bumpspec</inherits-from>
     <condition>
       <property>sim/rendering/rembrandt/enabled</property>
     </condition>
@@ -135,26 +110,54 @@
     <object-name>porteD</object-name>
   </effect>
 
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <condition>
+      <not><property>sim/rendering/rembrandt/enabled</property></not>
+    </condition>
+    <object-name>vitres</object-name>
+    <object-name>vitreporteAG</object-name>
+    <object-name>vitreporteBG</object-name>
+    <object-name>vitreporteAD</object-name>
+    <object-name>vitreporteBD</object-name>
+  </animation>
+
   <!-- working for Rembrandt -->
   <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
+    <inherits-from>Aircraft/Dauphin/Models/Effects/glass</inherits-from>
     <condition>
       <property>sim/rendering/rembrandt/enabled</property>
     </condition>
     <object-name>vitres</object-name>
+    <object-name>vitreporteAG</object-name>
+    <object-name>vitreporteBG</object-name>
+    <object-name>vitreporteAD</object-name>
+    <object-name>vitreporteBD</object-name>
   </effect>
-
+  
+  <!-- Une ombre pour OSG -->
+  <model>
+    <path>Aircraft/Dauphin/Models/shadow.xml</path>
+    <offsets>
+      <x-m> -1.785 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.650 </z-m>
+    </offsets>
+  </model>
+  
   <!-- Interieur -->
   <model>
     <name>Interieur</name>
     <path>Aircraft/Dauphin/Models/Interior/interior.xml</path>
   </model>
 
-  <!-- For Rembrandt -->
+  <!-- For Rembrandt
   <animation>
     <type>noshadow</type>
     <object-name>Interieur</object-name>
-  </animation>
+  </animation> -->
 
   <!-- Rotor principale -->
   <model>

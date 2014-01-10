@@ -26,29 +26,27 @@
     <type>shader</type>
     <shader>chrome</shader>
     <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <condition>
+      <not><property>sim/rendering/rembrandt/enabled</property></not>
+    </condition>
     <object-name>intvitres</object-name>
     <object-name>intvitreporteAG</object-name>
     <object-name>intvitreporteBG</object-name>
     <object-name>intvitreporteAD</object-name>
     <object-name>intvitreporteBD</object-name>
   </animation>
-
-  <animation>
-    <type>noshadow</type>
-    <object-name>intvitres</object-name>
-    <object-name>intvitreporteAG</object-name>
-    <object-name>intvitreporteBG</object-name>
-    <object-name>intvitreporteAD</object-name>
-    <object-name>intvitreporteBD</object-name>
-  </animation>
-
+  
   <!-- working for Rembrandt -->
   <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
+    <inherits-from>Aircraft/Dauphin/Models/Effects/glass</inherits-from>
     <condition>
       <property>sim/rendering/rembrandt/enabled</property>
     </condition>
     <object-name>intvitres</object-name>
+    <object-name>intvitreporteAG</object-name>
+    <object-name>intvitreporteBG</object-name>
+    <object-name>intvitreporteAD</object-name>
+    <object-name>intvitreporteBD</object-name>
   </effect>
   
   <!-- Pilote -->

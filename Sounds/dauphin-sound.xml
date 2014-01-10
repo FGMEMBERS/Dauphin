@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!-- Based on Bo105 and Alouette 2 -->
+<!--
+     Based on Bo105 and Alouette 2
+     Updated by Raptor
+     Updated by Helijah January 2014
+-->
 <PropertyList>
 
   <fx>
@@ -12,30 +16,14 @@
       <condition>
         <and>
           <greater-than>
-            <property>sim/model/Dauphin/state</property>
+            <property>sim/model/dauphin/state</property>
             <value>0</value>
           </greater-than>
-          <not>
-            <property>sim/crashed</property>
-          </not>
-          <and>
-            <not>
-              <equals>
-                <property>sim/current-view/view-number</property>
-                <value>0</value> <!-- Pilote view -->
-              </equals>
-            </not>
-            <not>
-              <equals>
-                <property>sim/current-view/view-number</property>
-                <value>8</value> <!-- Copilote view -->
-              </equals>
-            </not>
-          </and>
+          <not><property>sim/current-view/internal</property></not>
         </and>
       </condition>
       <volume>
-	<factor>0.12</factor>
+        <factor>0.7</factor>
       </volume>
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
@@ -44,35 +32,23 @@
     <engine>
       <name>Start internal</name>
       <mode>once</mode>
-      <path>Aircraft/Dauphin/Sounds/turbine-start-in.wav</path>
+      <path>Aircraft/Dauphin/Sounds/turbine-start.wav</path>
       <condition>
         <and>
           <greater-than>
-            <property>sim/model/Dauphin/state</property>
+            <property>sim/model/dauphin/state</property>
             <value>0</value>
           </greater-than>
-          <not>
-            <property>sim/crashed</property>
-          </not>
-          <or>
-            <equals>
-              <property>sim/current-view/view-number</property>
-              <value>0</value> <!-- Pilote view -->
-            </equals>
-            <equals>
-              <property>sim/current-view/view-number</property>
-              <value>8</value> <!-- Copilote view -->
-            </equals>
-          </or>
+          <property>sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
-	<factor>0.12</factor>
+        <factor>0.12</factor>
       </volume>
       <reference-dist>50</reference-dist>
       <max-dist>200</max-dist>
     </engine>
-
+    
     <engine>
       <name>Turbine external</name>
       <mode>looped</mode>
@@ -80,67 +56,39 @@
       <condition>
         <and>
           <greater-than>
-            <property>sim/model/Dauphin/state</property>
+            <property>sim/model/dauphin/state</property>
             <value>0</value>
           </greater-than>
-          <not>
-            <property>sim/crashed</property>
-          </not>
-          <and>
-            <not>
-              <equals>
-                <property>sim/current-view/view-number</property>
-                <value>0</value> <!-- Pilote view -->
-              </equals>
-            </not>
-            <not>
-              <equals>
-                <property>sim/current-view/view-number</property>
-                <value>8</value> <!-- Copilote view -->
-              </equals>
-            </not>
-          </and>
+          <not><property>sim/current-view/internal</property></not>
         </and>
       </condition>
       <volume>
-	<factor>0.12</factor>
+        <factor>0.7</factor>
       </volume>
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
     </engine>
-
+    
     <engine>
       <name>Turbine internal</name>
       <mode>looped</mode>
-      <path>Aircraft/Dauphin/Sounds/turbine-loop-in.wav</path>
+      <path>Aircraft/Dauphin/Sounds/turbine-loop.wav</path>
       <condition>
         <and>
           <greater-than>
-            <property>sim/model/Dauphin/state</property>
+            <property>sim/model/dauphin/state</property>
             <value>0</value>
           </greater-than>
-          <not>
-            <property>sim/crashed</property>
-          </not>
-          <or>
-            <equals>
-              <property>sim/current-view/view-number</property>
-              <value>0</value> <!-- Pilote view -->
-            </equals>
-            <equals>
-              <property>sim/current-view/view-number</property>
-              <value>8</value> <!-- Copilote view -->
-            </equals>
-          </or>
+          <property>sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
-	<factor>0.12</factor>
+        <factor>0.12</factor>
       </volume>
       <reference-dist>50</reference-dist>
       <max-dist>200</max-dist>
     </engine>
-
+    
     <engine>
       <name>Shutdown external</name>
       <mode>once</mode>
@@ -148,67 +96,39 @@
       <condition>
         <and>
           <greater-than>
-            <property>sim/model/Dauphin/state</property>
+            <property>sim/model/dauphin/state</property>
             <value>0</value>
           </greater-than>
-          <not>
-            <property>sim/crashed</property>
-          </not>
-          <and>
-            <not>
-              <equals>
-                <property>sim/current-view/view-number</property>
-                <value>0</value> <!-- Pilote view -->
-              </equals>
-            </not>
-            <not>
-              <equals>
-                <property>sim/current-view/view-number</property>
-                <value>8</value> <!-- Copilote view -->
-              </equals>
-            </not>
-          </and>
+          <not><property>sim/current-view/internal</property></not>
         </and>
       </condition>
       <volume>
-	<factor>0.12</factor>
+        <factor>0.7</factor>
       </volume>
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
     </engine>
-
+    
     <engine>
       <name>Shutdown internal</name>
       <mode>once</mode>
-      <path>Aircraft/Dauphin/Sounds/turbine-stop-in.wav</path>
+      <path>Aircraft/Dauphin/Sounds/turbine-stop.wav</path>
       <condition>
         <and>
           <greater-than>
-            <property>sim/model/Dauphin/state</property>
+            <property>sim/model/dauphin/state</property>
             <value>0</value>
           </greater-than>
-          <not>
-            <property>sim/crashed</property>
-          </not>
-          <or>
-            <equals>
-              <property>sim/current-view/view-number</property>
-              <value>0</value> <!-- Pilote view -->
-            </equals>
-            <equals>
-              <property>sim/current-view/view-number</property>
-              <value>8</value> <!-- Copilote view -->
-            </equals>
-          </or>
+          <property>sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
-	<factor>0.12</factor>
+        <factor>0.12</factor>
       </volume>
       <reference-dist>50</reference-dist>
       <max-dist>200</max-dist>
     </engine>
-
+    
     <rotor>
       <name>Rotor external</name>
       <mode>looped</mode>
@@ -216,30 +136,14 @@
       <condition>
         <and>
           <greater-than>
-            <property>rotors/main/rpm</property>
-            <value>50</value>
+            <property>sim/model/dauphin/state</property>
+            <value>0</value>
           </greater-than>
-          <not>
-            <property>sim/crashed</property>
-          </not>
-          <and>
-            <not>
-              <equals>
-                <property>sim/current-view/view-number</property>
-                <value>0</value> <!-- Pilote view -->
-              </equals>
-            </not>
-            <not>
-              <equals>
-                <property>sim/current-view/view-number</property>
-                <value>8</value> <!-- Copilote view -->
-              </equals>
-            </not>
-          </and>
+          <not><property>sim/current-view/internal</property></not>
         </and>
       </condition>
       <volume>
-        <property>rotors/gear/torque-sound-filtered</property>
+        <factor>0.7</factor>
       </volume>
       <pitch>
         <property>rotors/main/rpm</property>
@@ -249,40 +153,28 @@
       </pitch>
       <position>
         <x> -2 </x>
-        <y> 0 </y>
-        <z> 1 </z>
+        <y>  0 </y>
+        <z>  1 </z>
       </position>
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
     </rotor>
-
+    
     <rotor>
       <name>Rotor internal</name>
       <mode>looped</mode>
-      <path>Aircraft/Dauphin/Sounds/rotor-loop-in.wav</path>
+      <path>Aircraft/Dauphin/Sounds/rotor-loop.wav</path>
       <condition>
         <and>
           <greater-than>
-            <property>rotors/main/rpm</property>
-            <value>50</value>
+            <property>sim/model/dauphin/state</property>
+            <value>0</value>
           </greater-than>
-          <not>
-            <property>sim/crashed</property>
-          </not>
-          <or>
-            <equals>
-              <property>sim/current-view/view-number</property>
-              <value>0</value> <!-- Pilote view -->
-            </equals>
-            <equals>
-              <property>sim/current-view/view-number</property>
-              <value>8</value> <!-- Copilote view -->
-            </equals>
-          </or>
+          <property>sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
-        <property>rotors/gear/torque-sound-filtered</property>
+        <factor>0.12</factor>
       </volume>
       <pitch>
         <property>rotors/main/rpm</property>
@@ -293,7 +185,7 @@
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
     </rotor>
-
+    
     <contact>
       <name>ground contact</name>
       <mode>once</mode>

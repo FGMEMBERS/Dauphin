@@ -26,42 +26,14 @@
     <object-name>HSI.CRS.deflection</object-name>
     
     <object-name>HSI.vitre</object-name>
- </animation>
-
-  <animation>
-    <type>noshadow</type>
-    <object-name>HSI.vitre</object-name>
-  </animation>
-
-  <animation>
-    <type>shader</type>
-    <shader>chrome</shader>
-    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
-    <object-name>HSI.vitre</object-name>
   </animation>
 
   <!-- working for Rembrandt -->
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
-    <condition>
-      <property>sim/rendering/rembrandt/enabled</property>
-    </condition>
     <object-name>HSI.vitre</object-name>
   </effect>
-
-  <animation>
-    <type>material</type>
-    <object-name>HSI.fond</object-name>
-    <condition>
-      <property>/controls/lighting/instrument-lights</property>
-    </condition>
-    <emission>
-      <red>   0.01 </red>
-      <green> 0.01 </green>
-      <blue>  0.01 </blue>
-    </emission>
-  </animation>
-
+ 
   <animation>
     <type>material</type>
     <object-name>HSI.card</object-name>
@@ -77,13 +49,11 @@
     <object-name>HSI.hdg-bug</object-name>
     <object-name>HSI.CRS.needle</object-name>
     <object-name>HSI.CRS.deflection</object-name>
-    <condition>
-      <property>/controls/lighting/instrument-lights</property>
-    </condition>
     <emission>
-      <red>   0.80 </red>
-      <green> 0.50 </green>
-      <blue>  0.50 </blue>
+      <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+      <red>   0.50 </red>
+      <green> 0.25 </green>
+      <blue>  0.25 </blue>
     </emission>
   </animation>
 
