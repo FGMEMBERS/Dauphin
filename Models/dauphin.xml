@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>dauphin.ac</path>
+
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/Dauphin/Models/Liveries", 10);
+      
+      var self = cmdarg();
+
+      var float_0 = self.getNode("sim/multiplay/generic/float[0]", 1);
+      var float_1 = self.getNode("sim/multiplay/generic/float[1]", 1);
+      
+      var crew_door = self.getNode("instrumentation/doors/crew/position-norm", 1);
+      var passenger_door = self.getNode("instrumentation/doors/passenger/position-norm", 1);
+    
+      crew_door.alias(float_0);
+      passenger_door.alias(float_1);
+    </load>
+
+    <unload>
+      livery_update.stop();
+      crew_door.unalias();
+      passenger_door.unalias();
+    </unload>
+  </nasal>
+
+  <animation>
+    <object-name>fuselage</object-name>
+    <object-name>porteAG</object-name>
+    <object-name>porteBG</object-name>
+    <object-name>porteAD</object-name>
+    <object-name>porteBD</object-name>
+    <object-name>derive</object-name>
+    <object-name>moteurs</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+    <object-name>echappes</object-name>
+
+    <object-name>roueA</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+
+    <!-- Transparence -->
+    <object-name>vitres</object-name>
+    <object-name>vitreporteAG</object-name>
+    <object-name>vitreporteBG</object-name>
+    <object-name>vitreporteAD</object-name>
+    <object-name>vitreporteBD</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>porteAG</object-name>
+    <object-name>porteBG</object-name>
+    <object-name>porteAD</object-name>
+    <object-name>porteBD</object-name>
+    <object-name>derive</object-name>
+    <object-name>moteurs</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+    <object-name>echappes</object-name>
+
+    <object-name>roueA</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+    <specular>
+      <red-prop>specular/red</red-prop>
+      <green-prop>specular/green</green-prop>
+      <blue-prop>specular/blue</blue-prop>
+    </specular>
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/Generic/Effects/Fuselagereflect</inherits-from>
+    <condition>
+      <not><property>sim/rendering/rembrandt/enabled</property></not>
+    </condition>
+    <object-name>fuselage</object-name>
+    <object-name>porteAG</object-name>
+    <object-name>porteBG</object-name>
+    <object-name>porteAD</object-name>
+    <object-name>porteBD</object-name>
+    <object-name>derive</object-name>
+    <object-name>moteurs</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Aircraft/Dauphin/Models/Effects/Bump/bumpspec</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>fuselage</object-name>
+    <object-name>porteAG</object-name>
+    <object-name>porteBG</object-name>
+    <object-name>porteAD</object-name>
+    <object-name>porteBD</object-name>
+    <object-name>derive</object-name>
+    <object-name>moteurs</object-name>
+    <object-name>porteG</object-name>
+    <object-name>porteD</object-name>
+  </effect>
+
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <condition>
+      <not><property>sim/rendering/rembrandt/enabled</property></not>
+    </condition>
+    <object-name>vitres</object-name>
+    <object-name>vitreporteAG</object-name>
+    <object-name>vitreporteBG</object-name>
+    <object-name>vitreporteAD</object-name>
+    <object-name>vitreporteBD</object-name>
+  </animation>
+
+  <!-- working for Rembrandt -->
+  <effect>
+    <inherits-from>Aircraft/Dauphin/Models/Effects/glass</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>vitres</object-name>
+    <object-name>vitreporteAG</object-name>
+    <object-name>vitreporteBG</object-name>
+    <object-name>vitreporteAD</object-name>
+    <object-name>vitreporteBD</object-name>
+  </effect>
+  
+  <!-- Une ombre pour OSG -->
+  <model>
+    <path>Aircraft/Dauphin/Models/shadow.xml</path>
+    <offsets>
+      <x-m> -1.785 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.650 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Interieur -->
+  <model>
+    <name>Interieur</name>
+    <path>Aircraft/Dauphin/Models/Interior/interior.xml</path>
+  </model>
+
+  <!-- For Rembrandt
+  <animation>
+    <type>noshadow</type>
+    <object-name>Interieur</object-name>
+  </animation> -->
+
+  <!-- Rotor principale -->
+  <model>
+    <path>Aircraft/Dauphin/Models/MainRotor/mainrotor.xml</path>
+    <offsets>
+      <x-m> -1.785 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  1.449 </z-m>
+      <pitch-deg>  -5 </pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- Rotor de queue -->
+  <model>
+    <path>Aircraft/Dauphin/Models/TailRotor/tailrotor.xml</path>
+    <offsets>
+      <x-m>  5.295 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.085 </z-m>
+      <roll-deg>  -90 </roll-deg>
+    </offsets>
+  </model>
+
+  <!-- Rentré des roues Temporairement disparition/apparition des roues -->
+  <animation>
+    <type>select</type>
+    <object-name>roueA</object-name>
+    <object-name>roueG</object-name>
+    <object-name>roueD</object-name>
+    <condition>
+      <not>
+        <equals>
+          <property>gear/gear[0]/position-norm</property>
+          <value>0</value>
+        </equals>
+      </not>
+    </condition>
+  </animation>
+
+  <!-- Fermeture des portes des trains -->
+  <animation>
+    <type>rotate</type>
+    <object-name>porteG</object-name>
+    <property>gear/gear[1]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 0.2 </ind><dep> -80 </dep></entry>
+      <entry><ind> 1.0 </ind><dep> -80 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -0.985 </x1-m>
+      <y1-m> -0.862 </y1-m>
+      <z1-m> -1.148 </z1-m>
+      <x2-m>  0.301 </x2-m>
+      <y2-m> -0.697 </y2-m>
+      <z2-m> -1.035 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>porteD</object-name>
+    <property>gear/gear[2]/position-norm</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 0.2 </ind><dep> -80 </dep></entry>
+      <entry><ind> 1.0 </ind><dep> -80 </dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m>  0.301 </x1-m>
+      <y1-m>  0.697 </y1-m>
+      <z1-m> -1.035 </z1-m>
+      <x2-m> -0.985 </x2-m>
+      <y2-m>  0.862 </y2-m>
+      <z2-m> -1.148 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- Compression -->
+  <animation>
+    <type>translate</type>
+    <object-name>roueA</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <factor>0.3</factor>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>roueG</object-name>
+    <property>gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.3 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>roueD</object-name>
+    <property>gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0.0 </dep></entry>
+      <entry><ind> 1 </ind><dep> 0.3 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Rotation des roues lors du roulage -->
+  <animation>
+    <type>spin</type>
+    <object-name>roueA</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+    <x-m> -4.811 </x-m>
+    <y-m>  0.000 </y-m>
+    <z-m> -1.670 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueG</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m> -0.857 </x-m>
+      <y-m> -1.001 </y-m>
+      <z-m> -1.670 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>spin</type>
+    <object-name>roueD</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor> 30 </factor>
+    <center>
+      <x-m> -0.857 </x-m>
+      <y-m>  1.001 </y-m>
+      <z-m> -1.670 </z-m>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y> -1 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <!-- Les portes -->
+  <animation>
+    <name>PorteAvantGauche</name>
+    <object-name>porteAG</object-name>
+    <object-name>vitreporteAG</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PorteAvantGauche</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crewl.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PorteAvantGauche</object-name>
+    <property>sim/model/door-positions/crewl/position-norm</property>
+    <factor> -70 </factor>
+    <axis>
+      <x1-m> -3.88886 </x1-m>
+      <y1-m> -0.93371 </y1-m>
+      <z1-m> -0.82388 </z1-m>
+      <x2-m> -3.79440 </x2-m>
+      <y2-m> -0.92268 </y2-m>
+      <z2-m> -0.43779 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>PorteAvantDroite</name>
+    <object-name>porteAD</object-name>
+    <object-name>vitreporteAD</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PorteAvantDroite</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.crewr.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PorteAvantDroite</object-name>
+    <property>sim/model/door-positions/crewr/position-norm</property>
+    <factor> 70 </factor>
+    <axis>
+      <x1-m> -3.88886 </x1-m>
+      <y1-m>  0.93371 </y1-m>
+      <z1-m> -0.82388 </z1-m>
+      <x2-m> -3.79440 </x2-m>
+      <y2-m>  0.92268 </y2-m>
+      <z2-m> -0.43779 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>PorteArriereGauche</name>
+    <object-name>porteBG</object-name>
+    <object-name>vitreporteBG</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PorteArriereGauche</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.passengerl.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PorteArriereGauche</object-name>
+    <property>sim/model/door-positions/passengerl/position-norm</property>
+    <factor> -70 </factor>
+    <axis>
+      <x1-m> -2.56923 </x1-m>
+      <y1-m> -1.00689 </y1-m>
+      <z1-m> -0.79289 </z1-m>
+      <x2-m> -2.50491 </x2-m>
+      <y2-m> -0.97250 </y2-m>
+      <z2-m> -0.38677 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>PorteArriereDroite</name>
+    <object-name>porteBD</object-name>
+    <object-name>vitreporteBD</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>PorteArriereDroite</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>doors.passengerr.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>PorteArriereDroite</object-name>
+    <property>sim/model/door-positions/passengerr/position-norm</property>
+    <factor> 70 </factor>
+    <axis>
+      <x1-m> -2.56923 </x1-m>
+      <y1-m>  1.00689 </y1-m>
+      <z1-m> -0.79289 </z1-m>
+      <x2-m> -2.50491 </x2-m>
+      <y2-m>  0.97250 </y2-m>
+      <z2-m> -0.38677 </z2-m>
+    </axis>
+  </animation>
+
+  <!-- Ajout des effets lumineux -->
+  <model>
+    <path>Aircraft/Dauphin/Models/light/beacon.xml</path>
+    <offsets>
+      <x-m> 5.925 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 2.086 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/light/beacon.xml</path>
+    <offsets>
+      <x-m> -2.682 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.482 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/light/RedLight.xml</path>
+    <offsets>
+      <x-m> -2.683 </x-m>
+      <y-m> -1.000 </y-m>
+      <z-m> -1.215 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/light/GreenLight.xml</path>
+    <offsets>
+      <x-m> -2.683 </x-m>
+      <y-m>  1.000 </y-m>
+      <z-m> -1.215 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/light/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -2.483 </x-m>
+      <y-m> -1.000 </y-m>
+      <z-m> -1.215 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/Dauphin/Models/light/StrobeLight.xml</path>
+    <offsets>
+      <x-m> -2.483 </x-m>
+      <y-m>  1.000 </y-m>
+      <z-m> -1.215 </z-m>
+    </offsets>
+  </model>
+
+</PropertyList>

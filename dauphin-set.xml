@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <sim include="Nasal/views.xml">
+
+    <description>Dauphin (Yasim)</description>
+    <author>BARANGER Emmanuel (3D), Reagan Thomas, Maik Justus (FDM)</author>
+    <status>alpha</status>
+    <license>GPL v2</license>
+
+    <flight-model>yasim</flight-model>
+    <aero>dauphin</aero>
+    <fuel-fraction>0.8</fuel-fraction>
+
+    <startup>
+      <splash-texture>Aircraft/Dauphin/dauphin-splash.png</splash-texture>
+    </startup> 
+
+    <sound>
+      <path>Aircraft/Dauphin/Sounds/dauphin-sound.xml</path>
+    </sound>
+
+    <model>
+      <path archive="y">Aircraft/Dauphin/Models/dauphin.xml</path>
+      <livery>
+        <file type="string">default</file>
+      </livery>
+      <dauphin>
+        <state type="int">0</state>
+        <engine type="float">0.0</engine>
+        <rotor-step-deg type="float">-1</rotor-step-deg>
+      </dauphin>
+    </model>
+
+    <multiplay>
+      <chat_display>1</chat_display>
+      <generic> 
+        <int type="int" n="0">  0 </int>                                      <!-- 0 immat -->
+        <int type="int" n="1">  0 </int>                                      <!-- 1 immat -->
+        <int type="int" n="2">  0 </int>                                      <!-- 2 immat -->
+        <int type="int" n="3">  0 </int>                                      <!-- 3 immat -->
+        <int type="int" n="4">  0 </int>                                      <!-- 4 immat -->
+        <int type="int" n="5">  0 </int>                                      <!-- 5 immat -->
+        <int type="bool" n="6"> 1 </int>                                      <!-- 6 smoke/bomb/torpedo -->
+        <int type="int" n="7">  0 </int>                                      <!-- 7 color -->
+        <int n="8" alias="/systems/electrical/outputs/nav-lights">  0 </int>  <!-- 8 nav-lights -->
+        <int n="9" alias="/sim/model/lights/beacon/state">  false </int>      <!-- 9 strobe-lights -->
+        <int n="10" alias="/controls/electric/key-pos">  0 </int>             <!-- 10 key position -->
+        <float n="2" alias="/position/gear-agl-m">  0 </float>                <!-- 11 altitude for MP shadow -->
+        <float n="0" alias="/instrumentation/doors/crew/position-norm"/>
+        <float n="1" alias="/instrumentation/doors/passenger/position-norm"/>  
+      </generic>
+    </multiplay>
+
+    <help>
+      <title>Dauphin - background and help</title>
+      <line></line>
+      <key>
+        <name>{</name>
+        <desc>Start engines</desc>
+      </key>
+      <key>
+        <name>}</name>
+        <desc>Shutdown engines</desc>
+      </key>
+      <key>
+        <name>R</name>
+        <desc>Toggle rotor brake</desc>
+      </key>
+      <key>
+        <name>r</name>
+        <desc>Apply rotor brake</desc>
+      </key>
+      <key>
+        <name>Ctrl d</name>
+        <desc>Toggle S.A.S.</desc>
+      </key>
+      <key>
+        <name>Ctrl e</name>
+        <desc>Toggle C.A.S.</desc>
+      </key>
+      <key>
+        <name>Ctrl f</name>
+        <desc>Auto hover</desc>
+      </key>
+    </help>
+
+    <menubar include="Dialogs/dauphin-menu.xml"/>
+
+  </sim>
+
+  <controls>
+    <engines>
+      <engine n="0">
+        <magnetos>0</magnetos>
+      </engine>
+      <engine n="1">
+        <magnetos>0</magnetos>
+      </engine>
+    </engines>
+    <gear>
+      <brake-parking>1</brake-parking>
+    </gear>
+    <rotor>
+      <reltarget>1</reltarget>
+      <maxreltorque>1</maxreltorque>
+    </rotor>
+  </controls>
+
+  <instrumentation>
+    <gsdi>
+      <serviceable type="bool">true</serviceable>
+      <enabled type="bool">true</enabled>
+    </gsdi>
+  </instrumentation>
+
+  <input>
+    <keyboard include="Nasal/dauphin-keyboard.xml"/>
+  </input>
+
+  <rotors>
+    <main>
+      <rpm type="double">0</rpm>
+      <cone-deg type="double">0</cone-deg>
+      <cone1-deg type="double">0</cone1-deg>
+      <cone2-deg type="double">0</cone2-deg>
+      <cone3-deg type="double">0</cone3-deg>
+      <cone4-deg type="double">0</cone4-deg>
+    </main>
+  </rotors>
+
+  <nasal>
+    <doors>
+      <file>Aircraft/Dauphin/Nasal/doors.nas</file>
+    </doors>
+    <dauphin>
+      <file>Aircraft/Dauphin/Nasal/immat.nas</file>
+      <file>Aircraft/Dauphin/Nasal/light.nas</file>
+      <file>Aircraft/Dauphin/Nasal/dauphin.nas</file>
+      <file>Aircraft/Dauphin/Nasal/liveries.nas</file>
+      <file>Aircraft/Dauphin/Nasal/bladevisible.nas</file>
+      <file>Aircraft/Dauphin/Nasal/fcs-management.nas</file>
+      <file>Aircraft/Generic/helicopter-fcs.nas</file>
+    </dauphin>
+  </nasal>
+
+</PropertyList>
